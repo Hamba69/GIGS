@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Float and Display Assignment</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #764ba2;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .image-box {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 3px solid #667eea;
+        }
+
+        .image-box img {
+            float: left;
+            width: 45%;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .image-box img:hover {
+            transform: scale(1.05);
+        }
+
+        .image-box::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .explanation {
+            background: #fff3cd;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .code-box {
+            background: #2d3748;
+            color: #68d391;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .highlight {
+            background: #ffd700;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .answer-section {
+            background: #e7f3ff;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #2196F3;
+            margin: 20px 0;
+        }
+
+        .answer-section h3 {
+            color: #2196F3;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CSS Float and Display Assignment</h1>
+        <p class="subtitle">Understanding how CSS positioning works</p>
+
+        <h2>Part 1: Two Images Side by Side Using Float</h2>
+        
+        <div class="image-box">
+            <img src="https://i.pinimg.com/736x/1e/17/71/1e17714e0a9ae56f61342f1284fd11d7.jpg" alt="Cute Red Panda">
+            <img src="https://i.pinimg.com/736x/35/61/9a/35619aea147312ab62cb0a36e880a745.jpg" alt="Baby Elephant">
+        </div>
+
+        <div class="explanation">
+            <strong>How it works:</strong> The images float side by side because we use <span class="highlight">float left</span> on both images. Each image takes up 45% of the width with some margin space between them.
+        </div>
+
+        <div class="code-box">
+img {
+    float: left;
+    width: 45%;
+    margin: 10px;
+}
+        </div>
+
+        <h2>Part 2: Why Float Does Not Work With Display None</h2>
+
+        <div class="answer-section">
+            <h3>The Simple Answer</h3>
+            <p>When you write <span class="highlight">display none</span> on an element, it completely removes that element from the page. It is like the element does not exist at all.</p>
+            
+            <p>Since <span class="highlight">float</span> only works on elements that are actually shown on the page, there is nothing for float to affect when display is set to none.</p>
+            
+            <p><strong>Think of it this way:</strong></p>
+            <ul>
+                <li>Float left says: show this element on the left side</li>
+                <li>Display none says: do not show this element at all</li>
+                <li>Display none always wins because you cannot position something that does not exist</li>
+            </ul>
+        </div>
+
+        <div class="explanation">
+            <strong>Pro Tip:</strong> If you want to hide an element but keep it in the layout so float still works, use <span class="highlight">visibility hidden</span> instead of display none.
+        </div>
+
+        <div class="code-box">
+.hidden {
+    display: none;
+    float: left;
+    /* Float has NO effect here */
+}
+
+.invisible {
+    visibility: hidden;
+    float: left;
+    /* Float WORKS here */
+}
+        </div>
+
+    </div>
+</body>
+</html>

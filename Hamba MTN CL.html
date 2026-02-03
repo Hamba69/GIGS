@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamba Shabil Ismail - MTN Uganda Application</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #FFCC00 0%, #FFB800 100%);
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 15s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .mtn-logo {
+            font-size: 48px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 42px;
+            color: #000;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        .contact-bar {
+            background: #000;
+            color: #FFCC00;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            font-size: 14px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .letter-card {
+            background: white;
+            border-radius: 15px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(255, 204, 0, 0.2);
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .letter-header {
+            border-bottom: 3px solid #FFCC00;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .date {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .recipient {
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .greeting {
+            font-size: 18px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 25px;
+        }
+
+        .letter-body p {
+            margin-bottom: 20px;
+            text-align: justify;
+            color: #444;
+            transition: all 0.3s ease;
+        }
+
+        .letter-body p:hover {
+            color: #000;
+            transform: translateX(5px);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #FFCC00 0%, #FFB800 100%);
+            color: #000;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .closing {
+            margin-top: 40px;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .signature {
+            margin-top: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            font-style: italic;
+        }
+
+        .skills-section {
+            background: linear-gradient(135deg, #FFCC00 0%, #FFB800 100%);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .skills-section h2 {
+            color: #000;
+            margin-bottom: 25px;
+            font-size: 28px;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .skill-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .skill-level {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .cta-section {
+            background: #000;
+            color: #FFCC00;
+            padding: 50px;
+            border-radius: 15px;
+            text-align: center;
+            animation: fadeInUp 1.4s ease-out;
+        }
+
+        .cta-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #FFCC00;
+            color: #000;
+            border: 2px solid #FFCC00;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: #FFCC00;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 204, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #FFCC00;
+            border: 2px solid #FFCC00;
+        }
+
+        .btn-secondary:hover {
+            background: #FFCC00;
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #FFCC00;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            .letter-card {
+                padding: 30px 20px;
+            }
+
+            .contact-bar {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #FFCC00;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-indicator:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 204, 0, 0.6);
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #FFCC00;
+            width: 0%;
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <div class="hero">
+        <div class="hero-content">
+            <div class="mtn-logo">Y'ello MTN Uganda</div>
+            <h1>HAMBA SHABIL ISMAIL</h1>
+            <p class="subtitle">Computer Science Student | Digital Empowerment Advocate | Operations Manager</p>
+        </div>
+    </div>
+
+    <div class="contact-bar">
+        <div class="contact-item">
+            <span>📧</span> shabehamba@gmail.com
+        </div>
+        <div class="contact-item">
+            <span>📱</span> +256 776 866 921
+        </div>
+        <div class="contact-item">
+            <span>📍</span> Kampala, Uganda
+        </div>
+        <div class="contact-item">
+            <span>💼</span> <a href="https://linkedin.com/in/hamba-shabil-6259b3374" target="_blank">linkedin.com/in/hamba-shabil-6259b3374</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="letter-card">
+            <div class="letter-header">
+                <div class="date">January 21, 2026</div>
+                <div class="recipient">
+                    <strong>Human Resources Department</strong><br>
+                    MTN Uganda<br>
+                    MTN Tower, Kampala<br>
+                    Uganda
+                </div>
+            </div>
+
+            <div class="greeting">Dear Hiring Manager,</div>
+
+            <div class="letter-body">
+                <p>I am writing to express my strong interest in joining <span class="highlight">MTN Uganda's team</span>. As a Computer Science student at Isbat University with proven experience in digital literacy initiatives, technology education, and community empowerment, I am excited about the opportunity to contribute to MTN Uganda's mission of leading the delivery of a bold, new digital world to our customers.</p>
+
+                <p>Currently serving as <span class="highlight">Programs and Operations Manager</span> at NK Udada Foundation, I have successfully led digital empowerment initiatives that directly impact underserved communities across Uganda. My work coordinating digital literacy workshops for women and youth aligns perfectly with MTN Uganda's commitment to digital inclusion and bridging the digital divide. Through practical training in Microsoft Office Suite, Google Workspace, and essential IT skills, I have helped hundreds of Ugandans access opportunities in our increasingly digital economy—a mission that resonates deeply with MTN's "Y'ello" vision of connecting communities.</p>
+
+                <p>My technical foundation spans programming languages including <span class="highlight">C, Java, and Python</span>, complemented by expertise in Windows configuration, computer architecture, and eLearning platforms. Managing multiple concurrent programs at NK Udada Foundation has strengthened my project planning, team coordination, and budget management skills. As <span class="highlight">Public Image Director</span> for the Rotaract Club of Upper Kibuli, I have developed strong communication capabilities and experience managing community outreach initiatives that create meaningful social impact.</p>
+
+                <p>What distinguishes me is my unique blend of technical expertise, creative problem-solving, and genuine commitment to using technology as a tool for empowerment. Whether developing academic peer tutoring programs that improved student performance or providing tech troubleshooting services to enhance user experiences, I approach every challenge with adaptability, empathy, and the collaborative "Y'ello" spirit that defines MTN's culture.</p>
+
+                <p>I am particularly drawn to <span class="highlight">MTN Uganda</span> because of your leadership in driving digital transformation across our nation. From pioneering mobile money services that have revolutionized financial inclusion, to expanding 4G coverage to underserved areas, to your recent investments in 5G technology and digital innovation—MTN is not just a telecommunications company, but a catalyst for Uganda's digital future. Your commitment to the UN Sustainable Development Goals, particularly in education and gender equality, mirrors my own professional dedication to these causes.</p>
+
+                <p>I am confident that my proven track record in leading impact-driven technology initiatives, combined with my continuous learning approach and passion for digital inclusion, would make me a valuable addition to MTN Uganda's team. I am eager to contribute to your ongoing efforts to build a bold, new digital world for all Ugandans.</p>
+
+                <p>I would welcome the opportunity to discuss how my experience in digital literacy, operations management, and community engagement can support MTN Uganda's vision. Thank you for considering my application. I look forward to the possibility of contributing to MTN Uganda's continued success.</p>
+            </div>
+
+            <div class="closing">Warm regards,</div>
+            <div class="signature">Hamba Shabil Ismail</div>
+        </div>
+
+        <div class="skills-section">
+            <h2>Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <div class="skill-name">Programming</div>
+                    <div class="skill-level">C, Java, Python</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📊</div>
+                    <div class="skill-name">MS Office Suite</div>
+                    <div class="skill-level">Advanced</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎓</div>
+                    <div class="skill-name">Digital Literacy</div>
+                    <div class="skill-level">Training & Education</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">👥</div>
+                    <div class="skill-name">Team Leadership</div>
+                    <div class="skill-level">Operations Management</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🌐</div>
+                    <div class="skill-name">Google Workspace</div>
+                    <div class="skill-level">Expert</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎯</div>
+                    <div class="skill-name">Project Management</div>
+                    <div class="skill-level">SDG-Aligned</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Let's Connect & Build Uganda's Digital Future</h2>
+            <p>I'm ready to bring my passion for digital empowerment to MTN Uganda</p>
+            <div class="cta-buttons">
+                <a href="mailto:shabehamba@gmail.com" class="btn btn-primary">📧 Email Me</a>
+                <a href="tel:+256776866921" class="btn btn-secondary">📱 Call Now</a>
+                <a href="https://www.linkedin.com/in/hamba-shabil-6259b3374" target="_blank" class="btn btn-secondary">💼 LinkedIn Profile</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Designed with Y'ello spirit 💛 | Hamba Shabil Ismail © 2026</p>
+        <p>Building a bold, new digital world together</p>
+    </div>
+
+    <div class="scroll-indicator" onclick="scrollToTop()">
+        <span style="font-size: 24px;">↑</span>
+    </div>
+
+    <script>
+        // Progress bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Skill card animations
+        const skillCards = document.querySelectorAll('.skill-card');
+        skillCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+            card.style.animation = 'fadeInUp 0.6s ease-out forwards';
+        });
+    </script>
+</body>
+</html>
